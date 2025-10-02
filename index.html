@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Your Name — Personal Site</title>
+  <meta name="description" content="Your Name — research interests in X; CV, publications, projects." />
+  <link rel="icon" href="data:,">
+  <style>
+    :root { --bg:#fff; --text:#111; --muted:#555; --link:#0b5fff; --card:#f6f7f9; --max:760px; }
+    html { box-sizing: border-box; }
+    *,*:before,*:after { box-sizing: inherit; }
+    body {
+      margin:0; font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+      color:var(--text); background:var(--bg);
+    }
+    .wrap { max-width:var(--max); margin:auto; padding:28px 18px 60px; }
+    header { display:flex; flex-wrap:wrap; gap:18px; align-items:center; margin-bottom:22px; }
+    .avatar { width:88px; height:88px; border-radius:50%; background:#ddd; object-fit:cover; }
+    h1 { font-size:28px; line-height:1.2; margin:0 0 6px; }
+    .subtitle { color:var(--muted); margin:0; }
+    .links a { margin-right:14px; text-decoration:none; color:var(--link); }
+    section { background:var(--card); padding:18px; border-radius:14px; margin:18px 0; }
+    h2 { margin:0 0 10px; font-size:18px; letter-spacing:.2px; }
+    ul { padding-left:18px; margin:8px 0 0; }
+    li+li { margin-top:8px; }
+    .item-title { font-weight:600; }
+    .meta { color:var(--muted); font-size:0.95em; }
+    footer { margin-top:28px; color:var(--muted); font-size:0.95em; }
+    @media print {
+      body { background:#fff; }
+      section { background:#fff; border:1px solid #eee; }
+      a { color:#000; text-decoration:underline; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <!-- Optional headshot -->
+      <!-- <img src="headshot.jpg" alt="Your Name headshot" class="avatar"> -->
+      <div>
+        <h1>Your Name</h1>
+        <p class="subtitle">B.S. in Computer Science @ University · Research interests: program analysis, PL & ML</p>
+        <div class="links">
+          <a href="CV_YourName.pdf">CV</a>
+          <a href="mailto:you@domain.com">Email</a>
+          <a href="https://scholar.google.com/">Google Scholar</a>
+          <a href="https://github.com/youruser">GitHub</a>
+          <a href="https://www.linkedin.com/in/youruser/">LinkedIn</a>
+        </div>
+      </div>
+    </header>
+
+    <section>
+      <h2>About</h2>
+      <p>
+        I’m a prospective graduate student focusing on <b>XYZ</b>. I currently work with Prof. ABC on
+        <i>short description here</i>. I like simple, reliable systems and clear empirical results.
+      </p>
+    </section>
+
+    <section>
+      <h2>Research & Projects</h2>
+      <ul>
+        <li>
+          <span class="item-title">Project/Paper Title</span> — one-sentence summary of what it is and why it matters.
+          <span class="meta">[<a href="#">pdf</a>] [<a href="#">code</a>]</span>
+        </li>
+        <li>
+          <span class="item-title">Another Project</span> — concise impact/result.
+          <span class="meta">[<a href="#">poster</a>] [<a href="#">demo</a>]</span>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Selected Publications</h2>
+      <ul>
+        <li>
+          <span class="item-title">Title</span> — Your Name, Coauthor, <i>Venue ’25</i>.
+          <span class="meta">[<a href="#">paper</a>] [<a href="#">bibtex</a>]</span>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Teaching & Service</h2>
+      <ul>
+        <li>Teaching Assistant, Course Code — Term</li>
+      </ul>
+    </section>
+
+    <footer>
+      © <span id="y"></span> Your Name · Last updated <time id="updated"></time>
+    </footer>
+  </main>
+
+  <script>
+    const d = new Date();
+    document.getElementById('y').textContent = d.getFullYear();
+    document.getElementById('updated').textContent = d.toLocaleDateString();
+  </script>
+</body>
+</html>

@@ -15,8 +15,27 @@
       color:var(--text); background:var(--bg);
     }
     .wrap { max-width:var(--max); margin:auto; padding:28px 18px 60px; }
-    header { display:flex; flex-wrap:wrap; gap:18px; align-items:center; margin-bottom:22px; }
-    .avatar { width:88px; height:88px; border-radius:50%; background:#ddd; object-fit:cover; }
+    /* Bigger photo + side-by-side layout */
+    header {
+      display: grid;
+      grid-template-columns: 260px 1fr; /* photo | text */
+      gap: 24px;
+      align-items: start;
+      margin-bottom: 22px;
+    }
+    /* Large portrait */
+    .avatar {
+      width: 240px;   /* make bigger/smaller here */
+      height: 240px;  /* keep same as width for a perfect circle */
+      border-radius: 50%; /* change to 14px for a rounded square look */
+      object-fit: cover;
+      background: #ddd;
+    }
+    /* Mobile: stack + slightly smaller photo */
+    @media (max-width: 720px) {
+      header { grid-template-columns: 1fr; }
+      .avatar { width: 160px; height: 160px; }
+    }
     h1 { font-size:28px; line-height:1.2; margin:0 0 6px; }
     .subtitle { color:var(--muted); margin:0; }
     .links a { margin-right:14px; text-decoration:none; color:var(--link); }

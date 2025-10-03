@@ -189,7 +189,7 @@ footer { margin-top:28px; color:var(--muted); font-size:0.95em; }
   grid-template-columns: 1fr auto;  /* left: text, right: PNG */
   grid-template-rows: auto auto auto; /* row1 name | row2 links | row3 subtitle */
   column-gap: var(--text-gap);
-  row-gap: 8px;
+  row-gap: 2px;
   align-items: start;
 }
 

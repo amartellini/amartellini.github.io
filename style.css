@@ -67,7 +67,7 @@ body {
   content: ""; position: absolute; inset: 0;
   background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.25));
 }
-.hero > .wrap { position: relative; }
+.hero > .wrap {   display: flex; justify-content: center; }
 .hero h1, .hero .subtitle, .hero a { color: #fff; }
 .hero .links a { text-decoration: underline; color: #D1E5F4; }
 @media (max-width:760px){ .hero { /* keep existing heights */ } }
@@ -102,7 +102,7 @@ footer { margin-top:28px; color:var(--muted); font-size:0.95em; }
   padding: 12px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.06);
   display: inline-block;   /* shrink to content; remove if you want full width */
-  margin: 0 auto;
+  flex: 0 0 auto;  
 }
 
 /* Two-column layout INSIDE the card */
@@ -137,6 +137,27 @@ footer { margin-top:28px; color:var(--muted); font-size:0.95em; }
   .hero-card { padding: 10px; }
   .hero-card-grid { gap: 10px; }
 }
+/* Name row with icon to the right */
+.name-with-icon{
+  display: flex;           /* keeps name and icon on one line (wraps if needed) */
+  align-items: center;
+  gap: 10px;               /* space between text and icon */
+  margin: 0 0 6px;         /* keep your original bottom spacing under the name */
+}
+
+/* Icon sizing */
+.name-icon{
+  width: 32px;             /* tweak: 24–40px are common */
+  height: 32px;
+  object-fit: contain;     /* keep PNG proportions */
+  flex: 0 0 auto;          /* prevent shrinking */
+}
+
+/* Smaller on phones (optional) */
+@media (max-width: 760px){
+  .name-icon{ width: 26px; height: 26px; }
+}
+
 /* inner page header */
 .pagehead { padding: 18px 0 0; }
 .pagehead h1 { font-size: 28px; margin: 0; }

@@ -128,7 +128,7 @@ footer { margin-top:28px; color:var(--muted); font-size:0.95em; }
   object-fit: cover;
   border-radius: 10px;                             /* set to 0 for square */
   background:#ddd;
-  box-shadow: 0 0 0 2px #000000, 0 10px 30px rgba(0,0,0,.18);
+  box-shadow: 0 0 0 2px #7C0D0E, 0 10px 30px rgba(0,0,0,.18);
 }
 
 /* Mobile: stack neatly and soften spacing */

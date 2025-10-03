@@ -6,6 +6,11 @@
   --nav-link: #0b5fff;
   --nav-border: #e9ebee;
 
+  --badge-size: 100px;     /* PNG size (height scales automatically) */
+  --badge-col: auto;      /* width of the right column: auto | 96px | 120px */
+  --text-gap: 12px;       /* space between text and PNG */
+
+
   /* site */
   --bg:#fff; --text:#111; --muted:#555; --link:#0b5fff; --card:#f6f7f9; --max:970px;
 
@@ -163,12 +168,13 @@ footer { margin-top:28px; color:var(--muted); font-size:0.95em; }
 
 /* The decorative PNG on the right */
 .name-badge{
-  width: 80px;           /* ~3 lines tall visually; tweak 72–96px to taste */
+  grid-column: 2;         /* keep it on the RIGHT */
+  grid-row: 1 / -1;       /* span alongside the text */
+  justify-self: center;      /* move left|center|right within its column: start|center|end */
+  align-self: start;      /* move top|middle|bottom: start|center|end */
+  width: var(--badge-size);
   height: auto;
   object-fit: contain;
-  align-self: start;     /* top-align with the name */
-  grid-row: 1 / span 3; /* span multiple text rows to feel "tall" */
-  filter: drop-shadow(0 2px 10px rgba(0,0,0,.12)); /* subtle depth */
 }
 
 /* Responsive behavior: stack neatly on phones */

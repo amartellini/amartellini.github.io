@@ -15,15 +15,15 @@
       color:var(--text); background:var(--bg);
     }
     .wrap { max-width:var(--max); margin:auto; padding:28px 18px 60px; }
-    /* Bigger photo + side-by-side layout */
-    header {
-      display: grid;
-      grid-template-columns: 260px 1fr; /* photo | text */
-      gap: 24px;
-      align-items: start;
-      margin-bottom: 22px;
-    }
+
     /* Hero banner */
+  /* Bigger photo, side-by-side in the hero */
+    .hero header{
+      display: grid;
+      grid-template-columns: var(--photo) 1fr;  /* photo | text */
+      gap: 28px;
+      align-items: center;
+    }
     .hero {
       position: relative;
       background: #0b5fff url('banner.jpg') center/cover no-repeat;

@@ -138,13 +138,22 @@ footer { margin-top:28px; color:var(--muted); font-size:0.95em; }
   .hero-card-grid { gap: 10px; }
 }
 
-/* Two-column layout for the right side of the card */
+/* --- force right-side badge inside the card text column --- */
 .hero-textcol{
-  display: grid;
-  grid-template-columns: 1fr auto; /* text | badge */
+  display: grid ;
+  grid-template-columns: 1fr auto ;  /* text | badge */
   column-gap: 12px;
-  row-gap: 6px;
   align-items: start;
+}
+
+.hero-textcol .name-badge{
+  grid-column: 2 !important;   /* put PNG in the right column */
+  grid-row: 1 / -1;            /* span alongside the text */
+  justify-self: end;           /* hug the right edge */
+  width: 80px;                 /* adjust to taste (72–96px) */
+  height: auto;
+  object-fit: contain;
+  display: block;
 }
 
 /* Stack the normal text neatly */

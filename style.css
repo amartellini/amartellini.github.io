@@ -82,7 +82,6 @@ header {
 .avatar {
   width: 320px; height: 320px;
   border-radius: 6px; object-fit: cover; background:#ddd;
-  box-shadow: 0 0 0 2px #fff, 0 10px 30px rgba(0,0,0,.18);
 }
 @media (max-width: 720px){
   header { grid-template-columns: 1fr; }
@@ -109,7 +108,7 @@ footer { margin-top:28px; color:var(--muted); font-size:0.95em; }
   backdrop-filter: saturate(120%) blur(6px);
   -webkit-backdrop-filter: saturate(120%) blur(6px);
   border-radius: 16px;
-  padding: 18px;
+  padding: 12px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.06);
   display: inline-block;   /* shrink to content; remove if you want full width */
   max-width: 100%;
@@ -119,7 +118,7 @@ footer { margin-top:28px; color:var(--muted); font-size:0.95em; }
 .hero-card-grid{
   display: grid;
   grid-template-columns: var(--photo, 340px) 1fr; /* photo | text */
-  gap: 18px;
+  gap: 12px;
   align-items: center;
 }
 
@@ -143,8 +142,9 @@ footer { margin-top:28px; color:var(--muted); font-size:0.95em; }
 
 /* Mobile: stack neatly and soften spacing */
 @media (max-width: 760px){
-  .hero-card-grid{ grid-template-columns: 1fr; gap: 12px; }
-  .avatar{ width: 220px; height: 220px; }
+  :root { --photo: 200px; } /* optional on phones */
+  .hero-card { padding: 10px; }
+  .hero-card-grid { gap: 10px; }
 }
 /* inner page header */
 .pagehead { padding: 18px 0 0; }

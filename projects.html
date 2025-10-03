@@ -1,7 +1,12 @@
-<!doctype html><meta charset="utf-8">
-<title>Projects — Adhara Martellini</title>
-<link rel="icon" href="data:,">
-<link rel="stylesheet" href="style.css">
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Projects — Adhara Martellini</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+</head>
 <body>
   <nav class="topnav" role="navigation" aria-label="Primary">
     <div class="wrap">
@@ -14,34 +19,48 @@
       </div>
     </div>
   </nav>
+
   <main class="wrap">
+    <header class="pagehead">
       <h1>Projects</h1>
-      <section>
-      <ul>
-        <li>
-          <span class="item-title">Emotional prosody in the human brain (fMRI + behavior).</span>
-          Designing tasks, running scans, and analyzing patterns that convey affect through prosody. (Fedorenko Lab, MIT.)
-        </li>
-        <li>
-          <span class="item-title">Embodied emotion & autonomic regulation.</span>
-          Helped shape a research program tying neural signals to physiological states; coordinated protocols, compliance,
-          and multi-team operations. (Jazayeri Lab, MIT/HHMI.)
-        </li>
-        <li>
-          <span class="item-title">Bayesian modeling of risk behavior (BART).</span>
-          Built hierarchical models, ran MCMC on multi-cohort data (n&gt;300), and evaluated 30+ metrics; presented at Stanford’s
-          Symbolic Systems Poster Fair.
-        </li>
-        <li>
-          <span class="item-title">Precision oncology decision support.</span>
-          Prototyped generative and reinforcement-learning approaches for patient-specific treatment recommendations; shared
-          results with cross-functional teams.
-        </li>
-        <li>
-          <span class="item-title">Origins of orphan globular clusters.</span>
-          Spectroscopic analysis and statistical classification; co-authored work presented at AAS 231.
-        </li>
-      </ul>
+      <p class="subtitle">Selected research & builds.</p>
+    </header>
+
+    <section>
+      <h2>Emotional prosody in the human brain</h2>
+      <p>fMRI + behavioral study mapping how prosodic cues convey affect; designing tasks, running scans, and analyzing outcomes. (Fedorenko Lab, MIT.)</p>
     </section>
+
+    <section>
+      <h2>Embodied emotion & autonomic regulation</h2>
+      <p>Program-level work tying neural signals to physiological states; protocols, compliance, multi-team coordination. (Jazayeri Lab, MIT/HHMI.)</p>
+    </section>
+
+    <section>
+      <h2>Bayesian modeling of risk behavior (BART)</h2>
+      <p>Built hierarchical models, ran MCMC on multi-cohort data (n&gt;300), and evaluated 30+ metrics; presented at Stanford’s
+          Symbolic Systems Poster Fair.</p>
+    </section>
+
+    <section>
+      <h2>Precision oncology decision support</h2>
+      <p> Prototyped generative and reinforcement-learning approaches for patient-specific treatment recommendations; shared
+          results with cross-functional teams.</p>
+    </section>
+    
+    <section>
+     <h2>Origins of orphan globular clusters.</h2>
+    <p>Spectroscopic analysis and statistical classification; co-authored work presented at AAS 231.</p>
+
+    <footer>
+      © <span id="y"></span> Adhara Martellini · Last updated <time id="updated"></time>
+    </footer>
   </main>
+
+  <script>
+    const d=new Date();
+    document.getElementById('y').textContent=d.getFullYear();
+    document.getElementById('updated').textContent=d.toLocaleDateString();
+  </script>
 </body>
+</html>

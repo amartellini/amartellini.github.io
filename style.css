@@ -159,7 +159,7 @@ footer { margin-top:28px; color:var(--muted); font-size:0.95em; }
 .name-badge{
   grid-column: 2;         /* keep it on the RIGHT */
   grid-row: 1 / -1;       /* span alongside the text */
-  justify-self: left;      /* move left|center|right within its column: start|center|end */
+  justify-self: center;      /* move left|center|right within its column: start|center|end */
   align-self: start;      /* move top|middle|bottom: start|center|end */
   width: var(--badge-size);
   height: auto;

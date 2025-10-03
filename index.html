@@ -15,15 +15,15 @@
       color:var(--text); background:var(--bg);
     }
     .wrap { max-width:var(--max); margin:auto; padding:28px 18px 60px; }
-
-    /* Hero banner */
-  /* Bigger photo, side-by-side in the hero */
-    .hero header{
+    
+    header {
       display: grid;
-      grid-template-columns: var(--photo) 1fr;  /* photo | text */
-      gap: 28px;
-      align-items: center;
+      grid-template-columns: 320px 1fr; /* photo | text */
+      gap: 24px;
+      align-items: start;
+      margin-bottom: 22px;
     }
+    /* Hero banner */
     .hero {
       position: relative;
       background: #0b5fff url('banner.jpg') center/cover no-repeat;
@@ -47,9 +47,9 @@
     }
     /* Large portrait */
     .avatar {
-      width: 300px;   /* make bigger/smaller here */
-      height: 300px;  /* keep same as width for a perfect circle */
-      border-radius: 12px; /* change to 14px for a rounded square look */
+      width: 320px;   /* make bigger/smaller here */
+      height: 320px;  /* keep same as width for a perfect circle */
+      border-radius: 6px; /* change to 14px for a rounded square look */
       object-fit: cover;
       background: #ddd;
     }

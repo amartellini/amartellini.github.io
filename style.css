@@ -17,6 +17,7 @@
   /* hero spacing */
   --hero-pad: 30px;
 }
+:root { --home-color: #7C0D0E; } 
 
 /* fixed translucent top bar */
 .topnav{
@@ -42,6 +43,8 @@
 .nav-right a + a{ margin-left: 8px; }
 .topnav a:hover{ background: rgba(0,0,0,.06); }
 .topnav a[aria-current="page"]{ font-weight: 600; color: var(--nav-link); }
+.topnav .nav-left a.home-link { color: var(--home-color); }
+.topnav .nav-left a.home-link:hover{ background: rgba(0,0,0,.06); }
 
 /* push content below fixed bar on normal pages */
 body{ padding-top: var(--nav-h); }

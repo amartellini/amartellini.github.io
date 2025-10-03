@@ -181,3 +181,46 @@ footer { margin-top:28px; color:var(--muted); font-size:0.95em; }
 .pagehead { padding: 18px 0 0; }
 .pagehead h1 { font-size: 28px; margin: 0; }
 .pagehead .subtitle { margin: 6px 0 0; color: var(--muted); }
+
+/* ---- Right-of-name, above-the-rest layout ---- */
+:root{
+  --badge-size: 84px;   /* size of the PNG */
+  --text-gap: 12px;     /* space between text and PNG */
+  --badge-col: auto;    /* width of the PNG column: auto | 96px | 110px */
+}
+
+/* Two columns on the right side of the card: text | badge */
+.hero-textcol{
+  display: grid !important;
+  grid-template-columns: 1fr var(--badge-col);
+  column-gap: var(--text-gap);
+  align-items: start;
+}
+
+/* Keep all your text (h1 + subtitle + links) in column 1 */
+.hero-textcol .text-stack{
+  grid-column: 1;
+}
+
+/* Put the PNG in column 2, starting at the top of the name,
+   and let it extend downward alongside the text */
+.hero-textcol .name-badge{
+  grid-column: 2 !important;  /* RIGHT column */
+  grid-row: 1;                 /* starts at same row as the name */
+  align-self: start;           /* top-align with the name */
+  justify-self: end;           /* hug the right edge */
+  width: var(--badge-size);
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* Mobile: stack under the text */
+@media (max-width: 760px){
+  :root{ --badge-size: 60px; --text-gap: 10px; }
+  .hero-textcol{ grid-template-columns: 1fr; }
+  .hero-textcol .name-badge{
+    grid-column: 1; justify-self: start; align-self: start; margin-top: 6px;
+  }
+}
+

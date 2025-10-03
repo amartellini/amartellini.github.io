@@ -106,13 +106,13 @@ footer { margin-top:28px; color:var(--muted); font-size:0.95em; }
 }
 /* Translucent white card behind hero text */
 .hero-text{
-  background: rgba(255,255,255,0.78);      /* transparency */
+  background: rgba(255,255,255,0.65);      /* transparency */
   backdrop-filter: saturate(120%) blur(6px);
   -webkit-backdrop-filter: saturate(120%) blur(6px);
   border-radius: 14px;
   padding: 18px;
   box-shadow: 0 8px 24px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.06);
-  display: inline-block;                   /* shrink to content instead of full column */
+  /*display: inline-block;                   /* shrink to content instead of full column */
   max-width: 100%;                         /* don’t overflow on narrow screens */
 }
 

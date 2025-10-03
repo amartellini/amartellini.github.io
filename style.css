@@ -1,103 +1,94 @@
 :root{
-      /* nav */
-      --nav-h: 65px;
-      --nav-bg: rgba(255,255,255,.85); /* translucent */
-      --nav-text: #111;
-      --nav-link: #0b5fff;
-      --nav-border: #e9ebee;
-    }
-    
-    /* fixed top navigation (visible on all pages) */
+  /* nav */
+  --nav-h: 65px;
+  --nav-bg: rgba(255,255,255,.85);
+  --nav-text: #111;
+  --nav-link: #0b5fff;
+  --nav-border: #e9ebee;
+
+  /* site */
+  --bg:#fff; --text:#111; --muted:#555; --link:#0b5fff; --card:#f6f7f9; --max:970px;
+
+  /* hero spacing */
+  --hero-pad: 30px;
+}
+
+/* fixed translucent top bar */
 .topnav{
-      position: fixed; top: 0; left: 0; right: 0;
-      height: var(--nav-h); z-index: 1000;
-      background: var(--nav-bg);
-      backdrop-filter: saturate(140%) blur(8px);
-      -webkit-backdrop-filter: saturate(140%) blur(8px);
-      border-bottom: 1px solid var(--nav-border);
-    }
+  position: fixed; top: 0; left: 0; right: 0;
+  height: var(--nav-h); z-index: 1000;
+  background: var(--nav-bg);
+  backdrop-filter: saturate(140%) blur(8px);
+  -webkit-backdrop-filter: saturate(140%) blur(8px);
+  border-bottom: 1px solid var(--nav-border);
+}
 .topnav .wrap{
-      display: flex; align-items: center; justify-content: space-between;
-      height: 100%; padding-top: 0; padding-bottom: 0;
-    }
+  display: flex; align-items: center; justify-content: space-between;
+  height: 100%; padding-top: 0; padding-bottom: 0;
+}
 .nav-left a, .nav-right a{
-      color: var(--nav-text);
-      text-decoration: none;
-      font-size: 15px;
-      padding: 6px 10px;
-      border-radius: 9px;
-      text-transform: lowercase;
-    }
+  color: var(--nav-text);
+  text-decoration: none;
+  font-size: 15px;
+  padding: 6px 10px;
+  border-radius: 9px;
+  text-transform: lowercase;
+}
 .nav-right a + a{ margin-left: 8px; }
 .topnav a:hover{ background: rgba(0,0,0,.06); }
 .topnav a[aria-current="page"]{ font-weight: 600; color: var(--nav-link); }
-    
-    /* default: push content below the fixed bar */
+
+/* push content below fixed bar on normal pages */
 body{ padding-top: var(--nav-h); }
-    
-    /* homepage ONLY: let the hero sit under the bar (overlay effect) */
+
+/* homepage only: overlay nav on hero */
 body.has-hero{ padding-top: 0; }
-.hero{ padding-top: calc(var(--hero-pad,72px) + var(--nav-h)); } /* keeps hero text clear of the bar */
-    
-    /* make sure the hero overlay stays behind the nav */
-.hero::before{ z-index: 0; }
-.hero > .wrap, .topnav{ position: relative; z-index: 1; }
- 
-:root { --bg:#fff; --text:#111; --muted:#555; --link:#0b5fff; --card:#f6f7f9; --max:970px; }
+.hero{ padding-top: calc(var(--hero-pad) + var(--nav-h)); } /* clear the bar */
+
+/* layout + theme */
+:root { }
 html { box-sizing: border-box; }
-    *,*:before,*:after { box-sizing: inherit; }
+*,*:before,*:after { box-sizing: inherit; }
 body {
-    margin:0; font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
-    color:var(--text); background:var(--bg);
+  margin:0; font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+  color:var(--text); background:var(--bg);
 }
 .wrap { max-width:var(--max); margin:auto; padding:28px 18px 60px; }
-    
-header {
-      display: grid;
-      grid-template-columns: 320px 1fr; /* photo | text */
-      gap: 24px;
-      align-items: start;
-      margin-bottom: 22px;
-    }
-/* Hero banner */
+
+/* hero banner (no all-sides padding here to avoid overrides) */
 .hero {
-      position: relative;
-      background: #0b5fff url('banner.jpg') center/cover no-repeat;
-      color: #fff;
-      padding: 30px 0;      /* banner height (top/bottom) */
-      margin: 0 0 12px 0;   /* space below hero */
-    }
+  position: relative;
+  background: #0b5fff url('banner.jpg') center/cover no-repeat;
+  color: #fff;
+  margin: 0 0 12px 0;
+  padding-bottom: var(--hero-pad);
+}
 .hero::before {
-      /* subtle overlay for readability */
-      content: "";
-      position: absolute; inset: 0;
-      background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.25));
-    }
-.hero > .wrap {
-      position: relative;   /* puts content above overlay */
-    }
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.25));
+}
+.hero > .wrap { position: relative; }
 .hero h1, .hero .subtitle, .hero a { color: #fff; }
 .hero .links a { text-decoration: underline; color: #D1E5F4; }
-@media (max-width:760px){
-.hero { padding: 32px 0; }
-}
-    /* Large portrait */
-.avatar {
-      width: 320px;   /* make bigger/smaller here */
-      height: 320px;  /* keep same as width for a perfect circle */
-      border-radius: 6px; /* change to 14px for a rounded square look */
-      object-fit: cover;
-      background: #ddd;
-      box-shadow:
-        0 0 0 2px #fff,          /* <- the white line */
-        0 10px 30px rgba(0,0,0,.18); /* soft drop shadow for separation */
+@media (max-width:760px){ .hero { /* keep existing heights */ } }
 
-    }
-    /* Mobile: stack + slightly smaller photo */
-@media (max-width: 720px) {
-    header { grid-template-columns: 1fr; }
-.avatar { width: 160px; height: 160px; }
-    }
+/* header with side photo */
+header {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 24px; align-items: start; margin-bottom: 22px;
+}
+/* portrait */
+.avatar {
+  width: 320px; height: 320px;
+  border-radius: 6px; object-fit: cover; background:#ddd;
+  box-shadow: 0 0 0 2px #fff, 0 10px 30px rgba(0,0,0,.18);
+}
+@media (max-width: 720px){
+  header { grid-template-columns: 1fr; }
+  .avatar { width: 160px; height: 160px; }
+}
+
 h1 { font-size:28px; line-height:1.2; margin:0 0 6px; }
 .subtitle { color:var(--muted); margin:0; }
 .links a { margin-right:14px; text-decoration:none; color:var(--link); }
@@ -109,10 +100,11 @@ li+li { margin-top:8px; }
 .meta { color:var(--muted); font-size:0.95em; }
 footer { margin-top:28px; color:var(--muted); font-size:0.95em; }
 @media print {
-    body { background:#fff; }
-    section { background:#fff; border:1px solid #eee; }
-    a { color:#000; text-decoration:underline; }
+  body { background:#fff; }
+  section { background:#fff; border:1px solid #eee; }
+  a { color:#000; text-decoration:underline; }
 }
+
 /* inner page header */
 .pagehead { padding: 18px 0 0; }
 .pagehead h1 { font-size: 28px; margin: 0; }

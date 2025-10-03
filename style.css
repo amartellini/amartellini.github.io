@@ -6,7 +6,7 @@
   --nav-link: #0b5fff;
   --nav-border: #e9ebee;
 
-  --badge-size: 200px;     /* PNG size (height scales automatically) */
+  --badge-size: 170px;     /* PNG size (height scales automatically) */
   --badge-col: auto;      /* width of the right column: auto | 96px | 120px */
   --text-gap: 0px;       /* space between text and PNG */
 
@@ -183,11 +183,6 @@ footer { margin-top:28px; color:var(--muted); font-size:0.95em; }
 .pagehead .subtitle { margin: 6px 0 0; color: var(--muted); }
 
 /* ---- Right-of-name, above-the-rest layout ---- */
-:root{
-  --badge-size: 84px;   /* size of the PNG */
-  --text-gap: 12px;     /* space between text and PNG */
-  --badge-col: auto;    /* width of the PNG column: auto | 96px | 110px */
-}
 
 /* Two columns on the right side of the card: text | badge */
 .hero-textcol{

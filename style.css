@@ -78,15 +78,6 @@ header {
   grid-template-columns: 320px 1fr;
   gap: 24px; align-items: start; margin-bottom: 22px;
 }
-/* portrait */
-.avatar {
-  width: 320px; height: 320px;
-  border-radius: 6px; object-fit: cover; background:#ddd;
-}
-@media (max-width: 720px){
-  header { grid-template-columns: 1fr; }
-  .avatar { width: 160px; height: 160px; }
-}
 
 h1 { font-size:28px; line-height:1.2; margin:0 0 6px; }
 .subtitle { color:var(--muted); margin:0; }
@@ -112,6 +103,7 @@ footer { margin-top:28px; color:var(--muted); font-size:0.95em; }
   box-shadow: 0 8px 24px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.06);
   display: inline-block;   /* shrink to content; remove if you want full width */
   max-width: 100%;
+  margin: 0 auto;
 }
 
 /* Two-column layout INSIDE the card */
@@ -137,7 +129,6 @@ footer { margin-top:28px; color:var(--muted); font-size:0.95em; }
   object-fit: cover;
   border-radius: 10px;                             /* set to 0 for square */
   background:#ddd;
-  box-shadow: 0 0 0 2px #fff, 0 10px 30px rgba(0,0,0,.18); /* white line + shadow */
 }
 
 /* Mobile: stack neatly and soften spacing */

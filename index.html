@@ -7,6 +7,39 @@
   <meta name="description" content="Adhara Martellini — research interests in computational and cognitive neuroscience." />
   <link rel="icon" href="data:,">
   <style>
+    :root {
+      --nav-bg: rgba(255,255,255,0.9);
+      --nav-text: #111;
+      --nav-link: #0b5fff;
+      --nav-border: #e9ebee;
+      --nav-h: 48px; /* nav height */
+    }
+    
+    /* Top navigation bar */
+    .topnav{
+      position: sticky; top: 0; z-index: 1000;
+      background: var(--nav-bg);
+      backdrop-filter: saturate(140%) blur(6px); /* graceful fallback if unsupported */
+      border-bottom: 1px solid var(--nav-border);
+      height: var(--nav-h);
+    }
+    .topnav .wrap{
+      /* reuse your container but tighten vertical padding for the bar */
+      display: flex; align-items: center; justify-content: space-between;
+      height: var(--nav-h);
+      padding-top: 0; padding-bottom: 0;
+    }
+    .nav-left a, .nav-right a{
+      color: var(--nav-text);
+      text-decoration: none;
+      font-size: 15px;
+      padding: 6px 10px;
+      border-radius: 9px;
+      text-transform: lowercase;
+    }
+    .nav-right a + a{ margin-left: 8px; }
+    .topnav a:hover{ background: rgba(0,0,0,0.06); }
+    .topnav a[aria-current="page"]{ font-weight: 600; color: var(--nav-link); }
     :root { --bg:#fff; --text:#111; --muted:#555; --link:#0b5fff; --card:#f6f7f9; --max:970px; }
     html { box-sizing: border-box; }
     *,*:before,*:after { box-sizing: inherit; }
@@ -80,6 +113,18 @@
   </style>
 </head>
 <body>
+<nav class="topnav" role="navigation" aria-label="Primary">
+  <div class="wrap">
+    <div class="nav-left">
+      <!-- On the current page, keep aria-current="page" -->
+      <a href="index.html" aria-current="page">home</a>
+    </div>
+    <div class="nav-right">
+      <a href="projects.html">projects</a>
+      <a href="personal.html">personal</a>
+    </div>
+  </div>
+</nav>
 <section class="hero">
   <div class="wrap">
     <header>
@@ -120,36 +165,6 @@
         neuroscience • Computational modeling • Robust, reproducible, open science.
       </p>
     </section>
-
-    <section>
-      <h2>Selected Projects</h2>
-      <ul>
-        <li>
-          <span class="item-title">Emotional prosody in the human brain (fMRI + behavior).</span>
-          Designing tasks, running scans, and analyzing patterns that convey affect through prosody. (Fedorenko Lab, MIT.)
-        </li>
-        <li>
-          <span class="item-title">Embodied emotion & autonomic regulation.</span>
-          Helped shape a research program tying neural signals to physiological states; coordinated protocols, compliance,
-          and multi-team operations. (Jazayeri Lab, MIT/HHMI.)
-        </li>
-        <li>
-          <span class="item-title">Bayesian modeling of risk behavior (BART).</span>
-          Built hierarchical models, ran MCMC on multi-cohort data (n&gt;300), and evaluated 30+ metrics; presented at Stanford’s
-          Symbolic Systems Poster Fair.
-        </li>
-        <li>
-          <span class="item-title">Precision oncology decision support.</span>
-          Prototyped generative and reinforcement-learning approaches for patient-specific treatment recommendations; shared
-          results with cross-functional teams.
-        </li>
-        <li>
-          <span class="item-title">Origins of orphan globular clusters.</span>
-          Spectroscopic analysis and statistical classification; co-authored work presented at AAS 231.
-        </li>
-      </ul>
-    </section>
-
     <section>
       <h2>Publications &amp; Presentations (selected)</h2>
       <ul>

@@ -219,3 +219,37 @@ footer { margin-top:28px; color:var(--muted); font-size:0.95em; }
   }
 }
 
+/* ——— Right-side grid: name | PNG on top; subtitle (+ links) spans both below ——— */
+
+.hero-textcol{
+  display: grid !important;
+  grid-template-columns: 1fr auto; /* name | PNG */
+  grid-auto-rows: auto;
+  column-gap: var(--text-gap);
+  row-gap: 8px;
+  align-items: start;
+}
+
+/* Row/column placement */
+.hero-textcol .name       { grid-column: 1; grid-row: 1; margin: 0; }
+.hero-textcol .name-badge { 
+  grid-column: 2 !important; grid-row: 1;
+  justify-self: end; align-self: start;
+  width: var(--badge-size); height: auto; object-fit: contain; display: block;
+}
+.hero-textcol .subtitle   { grid-column: 1 / -1; grid-row: 2; margin: 0; }
+.hero-textcol .links      { grid-column: 1 / -1; grid-row: 3; }
+
+/* Mobile: stack neatly (PNG under the name) */
+@media (max-width: 760px){
+  :root{ --badge-size: 60px; --text-gap: 10px; }
+  .hero-textcol{
+    grid-template-columns: 1fr; row-gap: 6px;
+  }
+  .hero-textcol .name-badge{
+    grid-column: 1; grid-row: 2; justify-self: start; margin-top: 4px;
+  }
+  .hero-textcol .subtitle{ grid-row: 3; }
+  .hero-textcol .links{ grid-row: 4; }
+}
+

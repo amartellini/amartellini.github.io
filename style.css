@@ -235,3 +235,6 @@ footer { margin-top:28px; color:var(--muted); font-size:0.95em; }
 .name-badge{
   transform: translateX(var(--badge-nudge)); 
 }
+.name-badge{
+  transform: translateY(10px); 
+}

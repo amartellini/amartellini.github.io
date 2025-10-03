@@ -6,9 +6,9 @@
   --nav-link: #0b5fff;
   --nav-border: #e9ebee;
 
-  --badge-size: 100px;     /* PNG size (height scales automatically) */
+  --badge-size: 200px;     /* PNG size (height scales automatically) */
   --badge-col: auto;      /* width of the right column: auto | 96px | 120px */
-  --text-gap: 5px;       /* space between text and PNG */
+  --text-gap: 0px;       /* space between text and PNG */
 
 
   /* site */
@@ -157,9 +157,9 @@ footer { margin-top:28px; color:var(--muted); font-size:0.95em; }
 
 /* The decorative PNG on the right */
 .name-badge{
-  grid-column: 2;         /* keep it on the RIGHT */
+  grid-column: 1;         /* keep it on the RIGHT */
   grid-row: 1 / -1;       /* span alongside the text */
-  justify-self: center;      /* move left|center|right within its column: start|center|end */
+  justify-self: left;      /* move left|center|right within its column: start|center|end */
   align-self: start;      /* move top|middle|bottom: start|center|end */
   width: var(--badge-size);
   height: auto;
@@ -170,7 +170,7 @@ footer { margin-top:28px; color:var(--muted); font-size:0.95em; }
 @media (max-width: 760px){
   .hero-textcol{ grid-template-columns: 1fr; }
   .name-badge{
-    width: 56px;         /* smaller on mobile */
+    width: 100px;         /* smaller on mobile */
     grid-row: auto;
     justify-self: start; /* put it under the text (or set to end to align right) */
     margin-top: 6px;

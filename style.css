@@ -137,25 +137,40 @@ footer { margin-top:28px; color:var(--muted); font-size:0.95em; }
   .hero-card { padding: 10px; }
   .hero-card-grid { gap: 10px; }
 }
-/* Name row with icon to the right */
-.name-with-icon{
-  display: flex;           /* keeps name and icon on one line (wraps if needed) */
-  align-items: center;
-  gap: 10px;               /* space between text and icon */
-  margin: 0 0 6px;         /* keep your original bottom spacing under the name */
+
+/* Two-column layout for the right side of the card */
+.hero-textcol{
+  display: grid;
+  grid-template-columns: 1fr auto; /* text | badge */
+  column-gap: 12px;
+  row-gap: 6px;
+  align-items: start;
 }
 
-/* Icon sizing */
-.name-icon{
-  width: 32px;             /* tweak: 24–40px are common */
-  height: 32px;
-  object-fit: contain;     /* keep PNG proportions */
-  flex: 0 0 auto;          /* prevent shrinking */
+/* Stack the normal text neatly */
+.text-stack h1{ margin: 0 0 6px; }
+.text-stack .subtitle{ margin: 0 0 10px; }
+.text-stack .links a{ margin-right: 10px; }
+
+/* The decorative PNG on the right */
+.name-badge{
+  width: 80px;           /* ~3 lines tall visually; tweak 72–96px to taste */
+  height: auto;
+  object-fit: contain;
+  align-self: start;     /* top-align with the name */
+  grid-row: 1 / span 3; /* span multiple text rows to feel "tall" */
+  filter: drop-shadow(0 2px 10px rgba(0,0,0,.12)); /* subtle depth */
 }
 
-/* Smaller on phones (optional) */
+/* Responsive behavior: stack neatly on phones */
 @media (max-width: 760px){
-  .name-icon{ width: 26px; height: 26px; }
+  .hero-textcol{ grid-template-columns: 1fr; }
+  .name-badge{
+    width: 56px;         /* smaller on mobile */
+    grid-row: auto;
+    justify-self: start; /* put it under the text (or set to end to align right) */
+    margin-top: 6px;
+  }
 }
 
 /* inner page header */

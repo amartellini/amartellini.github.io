@@ -1,7 +1,12 @@
-<!doctype html><meta charset="utf-8">
-<title>Personal — Adhara Martellini</title>
-<link rel="icon" href="data:,">
-<link rel="stylesheet" href="style.css">
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Personal — Adhara Martellini</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="style.css">
+</head>
 <body>
   <nav class="topnav" role="navigation" aria-label="Primary">
     <div class="wrap">
@@ -14,7 +19,27 @@
       </div>
     </div>
   </nav>
+
   <main class="wrap">
-    <h1>Personal</h1>
+    <header class="pagehead">
+      <h1>Personal</h1>
+      <p class="subtitle">Notes, reading, and miscellany.</p>
+    </header>
+
+    <section>
+      <h2>Coming soon</h2>
+      <p>[To-do]</p>
+    </section>
+
+    <footer>
+      © <span id="y"></span> Adhara Martellini · Last updated <time id="updated"></time>
+    </footer>
   </main>
+
+  <script>
+    const d=new Date();
+    document.getElementById('y').textContent=d.getFullYear();
+    document.getElementById('updated').textContent=d.toLocaleDateString();
+  </script>
 </body>
+</html>

@@ -229,7 +229,7 @@ footer { margin-top:28px; color:var(--muted); font-size:0.95em; }
   }
   .hero-textcol .subtitle{ grid-column: 1; grid-row: 4; }
 }
-:root { --badge-nudge: -30px; } /* negative = left, positive = right */
+:root { --badge-nudge: -40px; } /* negative = left, positive = right */
 
 .name-badge{
   transform: translateX(var(--badge-nudge)); 

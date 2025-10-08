@@ -11,7 +11,7 @@
   --bg:#fff; --text:#111; --muted:#555; --card:#f6f7f9; --max:970px;
 
   /* hero + card */
-  --hero-pad: 30px;          /* space below hero card */
+  --hero-pad: 20px;          /* space below hero card */
   --photo: 300px;            /* portrait size (square) */
   --badge-size: 170px;       /* right-side PNG size */
   --text-gap: 0px;           /* gap between left text and PNG */

@@ -5,21 +5,20 @@
   --nav-text: #111;
   --nav-link: #0b5fff;
   --nav-border: #e9ebee;
-
-  --badge-size: 170px;     /* PNG size (height scales automatically) */
-  --badge-col: auto;      /* width of the right column: auto | 96px | 120px */
-  --text-gap: 0px;       /* space between text and PNG */
-
+  --home-color: #7C0D0E;
 
   /* site */
-  --bg:#fff; --text:#111; --muted:#555; --link:#0b5fff; --card:#f6f7f9; --max:970px;
+  --bg:#fff; --text:#111; --muted:#555; --card:#f6f7f9; --max:970px;
 
-  /* hero spacing */
-  --hero-pad: 30px;
+  /* hero + card */
+  --hero-pad: 30px;          /* space below hero card */
+  --photo: 300px;            /* portrait size (square) */
+  --badge-size: 170px;       /* right-side PNG size */
+  --text-gap: 0px;           /* gap between left text and PNG */
+  --badge-nudge: -70px;      /* tiny left/right shift of PNG (neg = left) */
 }
-:root { --home-color: #7C0D0E; } 
 
-/* fixed translucent top bar */
+/* -------- Top nav (fixed + translucent) -------- */
 .topnav{
   position: fixed; top: 0; left: 0; right: 0;
   height: var(--nav-h); z-index: 1000;
@@ -44,194 +43,142 @@
 .topnav a:hover{ background: rgba(0,0,0,.06); }
 .topnav a[aria-current="page"]{ font-weight: 600; color: var(--home-color); }
 
-/* push content below fixed bar on normal pages */
+/* push content below fixed bar (except hero overlay page) */
 body{ padding-top: var(--nav-h); }
-
-/* homepage only: overlay nav on hero */
 body.has-hero{ padding-top: 0; }
-.hero{ padding-top: calc(var(--hero-pad) + var(--nav-h)); } /* clear the bar */
 
-/* layout + theme */
-:root { }
-html { box-sizing: border-box; }
-*,*:before,*:after { box-sizing: inherit; }
-body {
-  margin:0; font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, sans-serif;
+/* -------- Base layout -------- */
+html{ box-sizing: border-box; }
+*,*:before,*:after{ box-sizing: inherit; }
+body{
+  margin:0; font:16px/1.6 system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,sans-serif;
   color:var(--text); background:var(--bg);
 }
-.wrap { max-width:var(--max); margin:auto; padding:28px 18px 60px; }
+.wrap{ max-width:var(--max); margin:auto; padding:28px 18px 60px; }
 
-/* hero banner (no all-sides padding here to avoid overrides) */
-.hero {
+/* -------- Hero (banner) -------- */
+.hero{
   position: relative;
   background: #0b5fff url('banner.jpg') center/cover no-repeat;
-  color: #fff;
-  margin: 0 0 12px 0;
+  color:#fff;
+  margin:0 0 12px 0;
+  padding-top: calc(var(--hero-pad) + var(--nav-h)); /* clear fixed nav */
   padding-bottom: var(--hero-pad);
 }
-.hero::before {
-  content: ""; position: absolute; inset: 0;
+.hero::before{
+  content:""; position:absolute; inset:0;
   background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.25));
 }
-.hero > .wrap {   display: flex; justify-content: center; }
-.hero h1, .hero .subtitle, .hero a { color: #fff; }
-.hero .links a { text-decoration: underline; color: #D1E5F4; }
-@media (max-width:760px){ .hero { /* keep existing heights */ } }
+.hero > .wrap{ display:flex; justify-content:center; } /* center the card */
+.hero h1, .hero .subtitle, .hero a{ color:#fff; }
+.hero .links a{ text-decoration:underline; color:#D1E5F4; }
 
-/* header with side photo */
-header {
-  display: grid;
-  grid-template-columns: 320px 1fr;
-  gap: 24px; align-items: start; margin-bottom: 22px;
-}
-
-h1 { font-size:28px; line-height:1.2; margin:0 0 6px; }
-.subtitle { color:var(--muted); margin:0; }
-.links a { margin-right:14px; text-decoration:none; color:var(--link); }
-section { background:var(--card); padding:18px; border-radius:14px; margin:18px 0; }
-h2 { margin:0 0 10px; font-size:18px; letter-spacing:.2px; }
-ul { padding-left:18px; margin:8px 0 0; }
-li+li { margin-top:8px; }
-.item-title { font-weight:600; }
-.meta { color:var(--muted); font-size:0.95em; }
-footer { margin-top:28px; color:var(--muted); font-size:0.95em; }
-@media print {
-  body { background:#fff; }
-  section { background:#fff; border:1px solid #eee; }
-  a { color:#000; text-decoration:underline; }
-}/* Translucent card that wraps portrait + text */
+/* -------- Card that wraps portrait + right column -------- */
 .hero-card{
   background: rgba(255,255,255,0.78);
   backdrop-filter: saturate(120%) blur(6px);
   -webkit-backdrop-filter: saturate(120%) blur(6px);
   border-radius: 16px;
   padding: 12px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.06);
-  display: inline-block;   /* shrink to content; remove if you want full width */
-  flex: 0 0 auto;  
+  box-shadow: 0 8px 24px rgba(0,0,0,.15), 0 0 0 1px rgba(0,0,0,.06);
+  display: inline-block;       /* hugs content */
+  flex: 0 0 auto;
 }
-
-/* Two-column layout INSIDE the card */
-.hero-card-grid{
-  display: grid;
-  grid-template-columns: var(--photo, 340px) 1fr; /* photo | text */
-  gap: 12px;
-  align-items: center;
-}
-
-/* Make sure text inside the light card is dark (overrides hero's white text) */
 .hero-card,
 .hero-card h1,
 .hero-card .subtitle,
-.hero-card a{ color: var(--text) !important; }
-.hero-card .subtitle{ color: var(--muted) !important; }
-.hero-card .links a{ color: var(--link) !important; text-decoration: underline; }
+.hero-card a{ color:var(--text) !important; }
+.hero-card .subtitle{ color:var(--muted) !important; }
+.hero-card .links a{ color:var(--nav-link) !important; text-decoration: underline; }
 
-/* Portrait styling (reuse yours; tweak size here) */
+/* inside the card: portrait | right-side text grid */
+.hero-card-grid{
+  display:grid;
+  grid-template-columns: var(--photo) 1fr; /* photo | text area */
+  gap:12px;
+  align-items:center;
+}
+
+/* portrait */
 .avatar{
-  width: var(--photo, 300px);
-  height: var(--photo, 300px);
+  width: var(--photo);
+  height: var(--photo);
   object-fit: cover;
-  border-radius: 10px;                             /* set to 0 for square */
+  border-radius: 10px;
   background:#ddd;
-  box-shadow: 0 0 0 2px #7C0D0E, 0 10px 30px rgba(0,0,0,.18);
+  box-shadow: 0 0 0 2px #7C0D0E, 0 10px 30px rgba(0,0,0,.18); /* your burgundy/black ring */
 }
 
-/* Mobile: stack neatly and soften spacing */
-@media (max-width: 760px){
-  :root { --photo: 200px; } /* optional on phones */
-  .hero-card { padding: 10px; }
-  .hero-card-grid { gap: 10px; }
-}
-
-/* --- force right-side badge inside the card text column --- */
+/* -------- Right-side two-row grid: 
+   row1: name (L) + PNG (R); row2/3: links & subtitle -------- */
 .hero-textcol{
-  display: grid ;
-  grid-template-columns: 1fr auto ;  /* text | badge */
-  align-items: start;
-}
-
-/* Stack the normal text neatly */
-.text-stack h1{ margin: 0 0 6px; }
-.text-stack .subtitle{ margin: 0 0 10px; }
-.text-stack .links a{ margin-right: 10px; }
-
-/* The decorative PNG on the right */
-.name-badge{
-  grid-column: 2;         /* keep it on the RIGHT */
-  grid-row: 1 / -1;       /* span alongside the text */
-  justify-self: center;      /* move left|center|right within its column: start|center|end */
-  align-self: start;      /* move top|middle|bottom: start|center|end */
-  width: var(--badge-size);
-  height: auto;
-  object-fit: contain;
-}
-
-/* Responsive behavior: stack neatly on phones */
-@media (max-width: 760px){
-  .hero-textcol{ grid-template-columns: 1fr; }
-  .name-badge{
-    width: 100px;         /* smaller on mobile */
-    grid-row: auto;
-    justify-self: start; /* put it under the text (or set to end to align right) */
-    margin-top: 6px;
-  }
-}
-
-/* inner page header */
-.pagehead { padding: 18px 0 0; }
-.pagehead h1 { font-size: 28px; margin: 0; }
-.pagehead .subtitle { margin: 6px 0 0; color: var(--muted); }
-
-/* --- Top area: name (L) + PNG (R); links under name; subtitle spans below --- */
-
-.hero-textcol{
-  display: grid !important;
-  grid-template-columns: 1fr auto;  /* left: text, right: PNG */
-  grid-template-rows: auto auto auto; /* row1 name | row2 links | row3 subtitle */
+  display:grid;
+  grid-template-columns: 1fr auto;       /* left text | right PNG */
+  grid-template-rows: auto auto auto;    /* name | links | subtitle (spans) */
   column-gap: var(--text-gap);
-  row-gap: 2px;
-  align-items: start;
+  row-gap: 8px;
+  align-items:start;
 }
-
-/* Row 1 */
 .hero-textcol .name{
-  grid-column: 1; grid-row: 1;
-  margin: 0 0 2px;
+  grid-column:1; grid-row:1;
+  margin:0 0 2px;
 }
-.hero-textcol .name-badge{
-  grid-column: 2 !important; grid-row: 1 / 3; /* span name+links vertically */
-  justify-self: end; align-self: start;
-  width: var(--badge-size); height: auto; object-fit: contain; display: block;
-}
-
-/* Row 2: links under the name (left column) */
 .hero-textcol .links{
-  grid-column: 1; grid-row: 2;
+  grid-column:1; grid-row:2;
+  margin:0;
 }
-
-/* Row 3: subtitle spans both columns, below everything */
 .hero-textcol .subtitle{
-  grid-column: 1 / -1; grid-row: 3;
-  margin: 0; /* tighter look */
+  grid-column:1 / -1; grid-row:3;
+  margin:0;
+}
+.name-badge{
+  grid-column:2; grid-row:1;              /* right of the name */
+  justify-self:end; align-self:start;
+  width: var(--badge-size); height:auto; object-fit:contain; display:block;
+  transform: translateX(var(--badge-nudge)); /* small left/right nudge */
 }
 
-/* Mobile: stack everything nicely */
-@media (max-width: 760px){
-  :root{ --badge-size: 60px; --text-gap: 10px; }
+/* -------- Sections / typography -------- */
+h1{ font-size:28px; line-height:1.2; margin:0 0 6px; }
+.subtitle{ color:var(--muted); margin:0; }
+.links a{ margin-right:14px; text-decoration:none; color:var(--nav-link); }
+section{ background:var(--card); padding:18px; border-radius:14px; margin:18px 0; }
+h2{ margin:0 0 10px; font-size:18px; letter-spacing:.2px; }
+ul{ padding-left:18px; margin:8px 0 0; }
+li+li{ margin-top:8px; }
+.item-title{ font-weight:600; }
+.meta{ color:var(--muted); font-size:.95em; }
+footer{ margin-top:28px; color:var(--muted); font-size:.95em; }
+
+/* -------- Inner page header -------- */
+.pagehead{ padding:18px 0 0; }
+.pagehead h1{ font-size:28px; margin:0; }
+.pagehead .subtitle{ margin:6px 0 0; color:var(--muted); }
+
+/* -------- Print tweaks -------- */
+@media print{
+  body{ background:#fff; }
+  section{ background:#fff; border:1px solid #eee; }
+  a{ color:#000; text-decoration:underline; }
+}
+
+/* -------- Mobile (≤760px) -------- */
+@media (max-width:760px){
+  :root{
+    --photo: 200px;
+    --badge-size: 100px;
+    --text-gap: 10px;
+  }
+  .hero-card{ padding:10px; }
+  .hero-card-grid{ gap:10px; }
   .hero-textcol{
     grid-template-columns: 1fr;
     grid-template-rows: auto auto auto auto; /* name, links, PNG, subtitle */
+    row-gap: 6px;
   }
-  .hero-textcol .name{ grid-column: 1; grid-row: 1; }
-  .hero-textcol .links{ grid-column: 1; grid-row: 2; }
-  .hero-textcol .name-badge{
-    grid-column: 1; grid-row: 3; justify-self: start; margin-top: 6px;
+  .name-badge{
+    grid-column:1; grid-row:3;
+    justify-self:start; margin-top:6px;
+    transform:none; /* avoid odd shifts on small screens */
   }
-  .hero-textcol .subtitle{ grid-column: 1; grid-row: 4; }
-}
-:root { --badge-nudge: -70px; } /* negative = left, positive = right */
-
-.name-badge{
-  transform: translateX(var(--badge-nudge)); 
 }

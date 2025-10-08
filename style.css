@@ -6,7 +6,7 @@
   --nav-link: #0b5fff;
   --nav-border: #e9ebee;
 
-  --badge-size: 150px;     /* PNG size (height scales automatically) */
+  --badge-size: 170px;     /* PNG size (height scales automatically) */
   --badge-col: auto;      /* width of the right column: auto | 96px | 120px */
   --text-gap: 0px;       /* space between text and PNG */
 
@@ -129,8 +129,8 @@ footer { margin-top:28px; color:var(--muted); font-size:0.95em; }
 
 /* Portrait styling (reuse yours; tweak size here) */
 .avatar{
-  width: var(--photo, 340px);
-  height: var(--photo, 340px);
+  width: var(--photo, 300px);
+  height: var(--photo, 300px);
   object-fit: cover;
   border-radius: 10px;                             /* set to 0 for square */
   background:#ddd;

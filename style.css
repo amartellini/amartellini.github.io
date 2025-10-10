@@ -61,7 +61,7 @@ body{
   position: relative;
   background: #0b5fff url('banner.jpg') center/cover no-repeat;
   color:#fff;
-  margin:0 0 8px 0;
+  margin:0 0 0px 0;
   padding-top: calc(var(--hero-pad) + var(--nav-h)); /* clear fixed nav */
   padding-bottom: var(--hero-pad);
 }

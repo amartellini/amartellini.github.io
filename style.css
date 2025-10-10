@@ -123,10 +123,14 @@ body{
   grid-column:1; grid-row:1;
   margin:0 0 2px;
 }
+.hero-textcol .name{ margin:0; }
+
 .hero-textcol .links{
   grid-column:1; grid-row:2;
   margin:0;
 }
+.hero-textcol .links{ margin:0; }  /* also inside .name-row */
+
 .hero-textcol .subtitle{
   grid-column:1 / -1; grid-row:3;
   margin:0;

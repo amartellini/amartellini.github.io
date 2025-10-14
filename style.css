@@ -131,7 +131,7 @@ body{
 .hero-textcol .links{ margin:0; }  /* also inside .name-row */
 
 .hero-textcol .subtitle{
-  grid-column:1 / -1; grid-row:3;
+  grid-column:1 / -1; grid-row:2;
   margin:0;
 }
 .name-badge{

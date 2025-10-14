@@ -15,7 +15,7 @@
   --photo: 300px;            /* portrait size (square) */
   --badge-size: 135px;       /* right-side PNG size */
   --text-gap: 20px;           /* gap between left text and PNG */
-  --badge-nudge: -70px;      /* tiny left/right shift of PNG (neg = left) */
+  --badge-nudge: -60px;      /* tiny left/right shift of PNG (neg = left) */
 }
 
 /* -------- Top nav (fixed + translucent) -------- */

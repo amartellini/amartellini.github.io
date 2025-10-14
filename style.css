@@ -13,7 +13,7 @@
   /* hero + card */
   --hero-pad: 20px;          /* space below hero card */
   --photo: 300px;            /* portrait size (square) */
-  --badge-size: 120px;       /* right-side PNG size */
+  --badge-size: 135px;       /* right-side PNG size */
   --text-gap: 0px;           /* gap between left text and PNG */
   --badge-nudge: -70px;      /* tiny left/right shift of PNG (neg = left) */
 }

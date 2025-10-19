@@ -14,8 +14,8 @@
   --hero-pad: 20px;          /* space below hero card */
   --photo: 300px;            /* portrait size (square) */
   --badge-size: 140px;       /* right-side PNG size */
-  --text-gap: 30px;           /* gap between left text and PNG */
-  --badge-nudge: -10px;      /* tiny left/right shift of PNG (neg = left) */
+  --text-gap: 40px;           /* gap between left text and PNG */
+  --badge-nudge: -20px;      /* tiny left/right shift of PNG (neg = left) */
 }
 
 /* -------- Top nav (fixed + translucent) -------- */
